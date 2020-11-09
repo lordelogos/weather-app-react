@@ -41,7 +41,7 @@ function App() {
 	const [loaded, setLoaded] = useState(false);
 
 	let fetchRes = async () => {
-		// setLoaded(false);
+		setLoaded(false);
 		// setOldData(data);
 		let data = await fetch(
 			`https://api.openweathermap.org/data/2.5/weather?q=${state},${country}&units=metric&appid=${API_KEY}`
@@ -70,7 +70,9 @@ function App() {
 				<WeatherDisplay data={data} />
 			) : (
 				<div className="container">
-					<p className="location">London, GB</p>
+					<p className="location">
+						{state}, {country}
+					</p>
 					<i className="wi wi-day-sunny"></i>
 					<p className="temp">25&deg;</p>
 					<div className="minmax">
